@@ -29,6 +29,8 @@
 }
 
 .comment {
+    font-family: "Bodoni Bd BT";
+    font-size:revert;
     background: mediumslateblue;
     color: aqua;
     border-radius: 20px;
