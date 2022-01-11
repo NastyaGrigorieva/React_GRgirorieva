@@ -1,9 +1,9 @@
 import './App.css';
-
+import {Wrap} from "./components/Wrap/Wrap";
 export const App = () => {
     return (
-        <div>
-            qwert
+        <div className={'wrap'}>
+            <Wrap/>
         </div>
     );
 }
