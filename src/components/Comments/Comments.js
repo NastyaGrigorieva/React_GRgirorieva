@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {Comment} from "./Comment";
+
+import {Comment} from "../Comment/Comment";
 
 
 export const Comments = () => {
@@ -12,7 +13,7 @@ export const Comments = () => {
     return (
         <div>
 
-            {comment.map(comment =><Comment  key={comment.id} comment={comment}/>)}
+            {comment.map(comment => <Comment key={comment.id} comment={comment}/>)}
         </div>
     );
 };

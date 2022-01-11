@@ -4,9 +4,9 @@ import React from "react";
 export const Comment = ({comment}) => {
     return (
         <div>
-            <b>{comment.postId} - {comment.id}</b>
+            <b>{comment.postId} - {comment.id} - {comment.email} </b>
 
-            {comment.name}{comment.email}{comment.body}
+            {comment.name} {comment.body}
         </div>
     );
 };
