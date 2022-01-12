@@ -1,0 +1,15 @@
+.wrap{
+    border: 1px solid darkviolet;
+}
+.flex{
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid darkviolet;
+    margin: 5px;
+
+}
+.img{
+    width: 100px;
+    height: 100px;
+    margin: 3px;
+}
