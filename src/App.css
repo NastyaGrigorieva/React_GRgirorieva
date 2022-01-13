@@ -16,6 +16,9 @@
 }
 
 .wrap {
+    display: flex;
+    justify-content: flex-start;
+    text-align: center;
     border: dashed 3px rosybrown;
     margin: 5px;
     padding: 10px;
@@ -28,13 +31,24 @@
     color: #ce6262;
 }
 
-.comment {
+.details {
+    width: 50%;
+    height: 200px;
     font-family: "Bodoni Bd BT", serif;
+    text-align:left;
     font-size:revert;
-    background: mediumslateblue;
+    background: #a79ce8;
     color: aqua;
     border-radius: 20px;
     padding: 7px;
 
 }
-
+button{
+    width: 85px;
+    height: 33px;
+    color: lightgray;
+    background: #ce6262;
+    border: #a79ce8;
+    border-radius: 30px;
+    margin: 15px;
+}

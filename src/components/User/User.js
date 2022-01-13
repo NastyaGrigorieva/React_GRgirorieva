@@ -3,9 +3,9 @@ import React from 'react';
 export const User = ({user, getChosenUser}) => {
     return (
         <div className={'wrap'}>
-            <h4>{user.id} - {user.name} - </h4>
+            <h5>{user.id} - {user.name} - </h5>
 
-            {user.username} - {user.email}
+           <p> {user.username} - {user.email}</p>
 
             <button onClick={()=> getChosenUser(user.id)}> User-details </button>
         </div>
