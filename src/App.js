@@ -8,12 +8,13 @@ import {useState} from "react";
 export const App = () => {
     const [chosenUser, setChosenUser] = useState(null);
     const [userId, setUserId] = useState(null);
-
+//похожее на это /2
     const getChosenUser = async (id) => {
         setUserId(false)
         const user = await getUserById(id);
         setChosenUser(user)
     }
+        //cделать k dеталям дополнительную кнопку,короая их закрывает /1
 
     return (
         <div className={'father'}>
