@@ -1,17 +1,18 @@
 import {useEffect, useState} from "react";
 
 import {Post} from "../Post/Post.js";
+import '../../App.css'
+import {getPostByUserId} from "../../services/API";
 
-export const Posts = () => {
+export const Posts = ({userId}) => {
     const [post, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/posts')
-            .then((response) => response.json())
-            .then((json) => setPosts(json));
-    })
+        getPostByUserId(userId).then((json) => setPosts(json));
+    }, [userId]);
+
     return (
-        <div>
+        <div className={'post'}>
             {post.map(post => <Post key={post.id} post={post}/>)}
         </div>
     );

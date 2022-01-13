@@ -29,7 +29,7 @@
 }
 
 .comment {
-    font-family: "Bodoni Bd BT";
+    font-family: "Bodoni Bd BT", serif;
     font-size:revert;
     background: mediumslateblue;
     color: aqua;
