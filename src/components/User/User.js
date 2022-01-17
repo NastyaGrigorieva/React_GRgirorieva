@@ -1,12 +1,14 @@
 import React from 'react';
+import css from 'User.css';
 
 export const User = ({user}) => {
+    const {id, name, username, email} = user;
     return (
-        <div className={'wrap'}>
-            <h4>{user.id} - {user.name} - </h4>
-
-            {user.username} - {user.email}
-
+        <div className={css.wrap}>
+            <div>{id}) {name} -- {username} -- {email}</div>
         </div>
+
     );
 };
+
+
