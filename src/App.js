@@ -1,10 +1,11 @@
 import './App.css';
 
-import Users from "./components/User/User";
-import Form from "./components/Form/Form";
+
+import {Form} from "./components/Form/Form";
 
 import {useEffect, useState} from "react";
 import {user} from "./servise/user";
+import {Users} from "./components/Users/Users";
 
 export const App = () => {
     const [users, setUsers] = useState([]);

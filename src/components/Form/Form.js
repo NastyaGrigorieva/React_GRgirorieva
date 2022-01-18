@@ -19,7 +19,7 @@ export const Form = ({getFilter}) => {
                 <label>Name: <input type="text" name={'name'} value={form.name} onChange={formHandler}/></label>
                 <label>Username: <input type="text" name={'username'} value={form.username} onChange={formHandler}/></label>
                 <label>Email: <input type="text" name={'email'} value={form.email} onChange={formHandler}/></label>
-                <button onClick={onSubmit}>Filter</button>
+                <button onClick={onSubmit}>кпопачка тык</button>
             </form>
         </div>
     );
