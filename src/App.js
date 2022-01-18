@@ -1,34 +1,26 @@
-import './App.css';
-import {Users} from "./components/Users/Users";
-import {Posts} from "./components/Posts/Posts";
-import {UserDetailInfo} from "./components/UserDetailInfo/UserDetailInfo";
-import {getUserById} from "./services/API";
-import {useState} from "react";
+import {Route, Routes} from "react-router-dom";
+
+import "./components/Layout/Layout.module.css"
+import {PostPage} from "./pages/PostsPage/PostPage";
+import {UserPage} from "./pages/UserPage/UserPage";
+import {Layout} from "./components/Layout/Layout";
+import {UserDetails} from "./components/UserDetails/UserDetails";
 
 export const App = () => {
-    const [chosenUser, setChosenUser] = useState(null);
-    const [userId, setUserId] = useState(null);
-//похожее на это /2
-    const getChosenUser = async (id) => {
-        setUserId(false)
-        const user = await getUserById(id);
-        setChosenUser(user)
-    }
-        //cделать k dеталям дополнительную кнопку,короая их закрывает /1
 
     return (
-        <div className={'father'}>
-            <div className={"flex"}>
-                <div className={'users'}><Users getChosenUser={getChosenUser}/></div>
-
-                {
-                    chosenUser && <UserDetailInfo chosenUser={chosenUser} setUserId={setUserId}/>
-                }
-            </div>
-            {
-                userId && <Posts userId={userId}/>
-            }
-        </div>
+        <>
+            <Routes>
+                <Route path={'/'} element={<Layout/>}>
+                    <Route path={'/users'} element={<UserPage/>}>
+                        <Route path={':id'} element={<UserDetails/>}>
+                            <Route path={'posts'} element={<UserDetails/>}/> // todo
+                        </Route>
+                    </Route>
+                    <Route path={'/posts'} element={<PostPage/>}/>
+                </Route>
+            </Routes>
+        </>
     );
 }
 

@@ -1,13 +1,10 @@
-import React from 'react';
+import {Link} from "react-router-dom";
 
-export const User = ({user, getChosenUser}) => {
+export const User = ({user}) => {
+    const {id, name} = user;
     return (
-        <div className={'wrap'}>
-            <h5>{user.id} - {user.name} - </h5>
-
-           <p> {user.username} - {user.email}</p>
-
-            <button onClick={()=> getChosenUser(user.id)}> User-details </button>
+        <div>
+            <Link to={id.toString()} state={user}> {name} </Link>
         </div>
     );
 };

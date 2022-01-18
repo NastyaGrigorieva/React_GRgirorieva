@@ -1,18 +1,20 @@
 import {useEffect, useState} from "react";
-
+import {userServise} from "../../services/user.servise";
 import {User} from "../User/User";
-import {getAllUsers} from "../../services/API";
 
-export const Users = ({getChosenUser}) => {
+export const Users = () => {
     const [users, setUsers] = useState([]);
 
-    useEffect(() => {
-        getAllUsers().then(value => setUsers(value));
-    }, [])
+    useEffect(async () => {
+        const users = await userServise.getAll()
+        setUsers(users);
+    }, []);
 
     return (
         <div>
-            {users.map(user => <User key={user.id} user={user} getChosenUser={getChosenUser}/>)}
+            {
+                users.map(user => <User key={user.id} user={user}/>)
+            }
         </div>
     );
 };

@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.header{
+    min-height: 80px;
+    background: rosybrown;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.nav_bar_links {
+    font-size: 40px;
+    color: honeydew;
+    text-decoration: none;
+}
