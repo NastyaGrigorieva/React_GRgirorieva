@@ -24,14 +24,17 @@ export const UserDetails = () => {
         );
     }
 
-    return (
-        <div>
-            {
-                JSON.stringify(user)
-            }
-        </div>
-    );
-};
-
+        return (
+            <div className={'details'}>
+                <ul>
+                    <li>{user.id}</li>
+                    <li> {user.name}</li>
+                    <li>{user.username}</li>
+                    <li>{user.email}</li>
+                </ul>
+                <button onClick={() => setUser(user.id)}> Покажися</button>
+            </div>
+        );
+    };
 
 
