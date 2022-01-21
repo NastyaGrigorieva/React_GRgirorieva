@@ -16,4 +16,7 @@
     font-size: 40px;
     color: honeydew;
     text-decoration: none;
+    border: 2px solid honeydew;
+    padding: 20px 50px ;
+    margin: 10px;
 }

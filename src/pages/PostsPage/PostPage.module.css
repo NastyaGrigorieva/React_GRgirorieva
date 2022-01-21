@@ -1,0 +1,10 @@
+.flex{
+    display: flex;
+    background: #79466e;
+    color: bisque;
+    justify-content: space-around;
+}
+.link{
+    color: bisque;
+    text-decoration: none;
+}

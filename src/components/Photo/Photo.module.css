@@ -1,0 +1,14 @@
+.father{
+    color: rosybrown;
+    text-decoration: none;
+}
+.button{
+    color: rosybrown;
+    background: bisque;
+    border: none;
+    border-radius: 5px;
+}
+.img{
+    border: bisque 3px solid;
+    border-radius: 120px;
+}

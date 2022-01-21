@@ -1,22 +1,24 @@
-import {useParams} from "react-router-dom";
+import {useParams, useNavigate, Outlet} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {userServise} from "../../services/user.servise";
 
+import styles from "./UserDetails.module.css"
 export const UserDetails = () => {
     const {id} = useParams();
+    const navigate = useNavigate();
 
-    const [user, setUser] = useState(null);
+    const [userDetails, setUserDetails] = useState(null);
 
     useEffect(async () => {
-        const user = await userServise.getById(id)
-        setUser(user);
+        const userDetails = await userServise.getById(id)
+        setUserDetails(userDetails);
     }, [id]);
 
     useEffect(() => {
-        setUser(false);
+        setUserDetails(false);
     }, [id]);
 
-    if (!user) {
+    if (!userDetails) {
         return (
             <div>
                 Loading...
@@ -25,14 +27,17 @@ export const UserDetails = () => {
     }
 
         return (
-            <div className={'details'}>
-                <ul>
-                    <li>{user.id}</li>
-                    <li> {user.name}</li>
-                    <li>{user.username}</li>
-                    <li>{user.email}</li>
-                </ul>
-                <button onClick={() => setUser(user.id)}> Покажися</button>
+            <div>
+                <div>
+                    <ul>
+                        <li>{userDetails.id}</li>
+                        <li> {userDetails.name}</li>
+                        <li>{userDetails.username}</li>
+                        <li>{userDetails.email}</li>
+                    </ul>
+                    <button  className={styles.button} onClick={() => navigate('posts')}> Покажися</button>
+                </div>
+                <Outlet/>
             </div>
         );
     };

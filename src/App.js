@@ -5,9 +5,11 @@ import {PostPage} from "./pages/PostsPage/PostPage";
 import {UserPage} from "./pages/UserPage/UserPage";
 import {Layout} from "./components/Layout/Layout";
 import {UserDetails} from "./components/UserDetails/UserDetails";
-import {Post} from "./components/Post/Post";
 import {PostDetails} from "./components/PostDetails/PostDetails";
-import {Posts} from "./components/Posts/Posts";
+import {PostsForUser} from "./components/PostsForUser/PostsForUser"
+import {Comments} from "./components/Comments/Comments";
+import {AlbumPage} from "./pages/AlbumPage/AlbumPage";
+import {Photos} from "./components/Photos/Photos";
 
 export const App = () => {
 
@@ -17,19 +19,23 @@ export const App = () => {
                 <Route path={'/'} element={<Layout/>}>
                     <Route path={'/users'} element={<UserPage/>}>
                         <Route path={':id'} element={<UserDetails/>}>
-                            <Route path={'posts'} element={<Posts/>}/> // todo
+                            <Route path={'posts'} element={<PostsForUser/>}/>
+                            <Route path={'albums'} element={<AlbumPage/>}>
+                                <Route path={':albumId/photos'} element={<Photos/>}/>
+                            </Route>
                         </Route>
                     </Route>
 
+
                     <Route path={'/posts'} element={<PostPage/>}>
                         <Route path={':id'} element={<PostDetails/>}>
-                            <Route path={'posts'} element={<Post/>}/>
+                            <Route path={'comments'} element={<Comments/>}/>
                         </Route>
                     </Route>
+
                 </Route>
             </Routes>
         </>
-    )
-        ;
+    );
 }
 

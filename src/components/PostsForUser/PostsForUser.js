@@ -1,16 +1,18 @@
 import {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
 
-import {postServise} from "../../services/post.servise";
 import {Post} from "../Post/Post";
+import {userServise} from "../../services/user.servise";
 
 
-export const Posts = () => {
+export const PostsForUser = () => {
+    const {id} = useParams();
     const [posts, setPosts] = useState([]);
 
     useEffect(async () => {
-        const posts = await postServise.getAll()
+        const posts = await userServise.getPostsByUserId(id)
         setPosts(posts);
-    }, []);
+    }, [id]);
 
     return (
         <div>

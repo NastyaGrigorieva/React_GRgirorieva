@@ -5,6 +5,7 @@ import {User} from "../User/User";
 export const Users = () => {
     const [users, setUsers] = useState([]);
 
+
     useEffect(async () => {
         const users = await userServise.getAll()
         setUsers(users);

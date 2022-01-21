@@ -1,0 +1,12 @@
+.flex{
+    display: flex;
+    background: #79466e;
+    color: bisque;
+    justify-content: space-around;
+
+}
+.link{
+    margin: 20px;
+    color: bisque;
+    text-decoration: none;
+}

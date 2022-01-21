@@ -1,0 +1,20 @@
+.flex{
+    display: flex;
+    background: #79466e;
+    color: bisque;
+    justify-content: space-around;
+
+}
+.link{
+    margin: 20px;
+    color: bisque;
+    text-decoration: none;
+}
+.button{
+
+    color: rosybrown;
+    background: bisque;
+    border: none;
+    border-radius: 5px;
+    margin: 2px;
+}
