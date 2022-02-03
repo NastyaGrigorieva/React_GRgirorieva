@@ -21,3 +21,7 @@ function incAge(someUser:IUser, inc:number):IUser{
 console.log(sum(1, 2));
 showSum(2,3)
 incAge(user, 2)
+
+// const init = ({a, b, c}:{a: string, b: number, c: boolean}) => {
+//
+// }
