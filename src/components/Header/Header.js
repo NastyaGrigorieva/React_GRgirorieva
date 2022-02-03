@@ -7,6 +7,7 @@ const Header = () => {
     return (
         <div>
             <h2>All: {all}   Completed: {completed}</h2>
+            <hr/>
         </div>
     );
 };
