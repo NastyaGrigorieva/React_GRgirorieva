@@ -17,6 +17,7 @@ const reduser = (state, action) => {
     }
 }
 
+
 export const App = () => {
     const [state, dispatch] = useReducer(reduser, {
         cats: [],
