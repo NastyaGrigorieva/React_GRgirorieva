@@ -1,0 +1,10 @@
+.todo{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color:rosybrown;
+}
+.completed{
+    text-decoration: line-through;
+    color: mediumslateblue;
+}
