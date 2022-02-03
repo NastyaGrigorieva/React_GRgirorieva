@@ -1,0 +1,14 @@
+.flex{
+    display: flex;
+    justify-content: space-around;
+    color: beige;
+}
+.flex button{
+    color: beige;
+    background: rosybrown;
+    border: none;
+    border-radius: 15px;
+}
+.flex input{
+    border-radius: 10px;
+}

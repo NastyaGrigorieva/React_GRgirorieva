@@ -1,21 +1,17 @@
-import React, {useReducer} from 'react';
-import {UseReduser} from "./components/UseReducer/UseReducer";
+import React, {useReducer, useState} from 'react';
+
+import "./App.css";
 
 const reduser = (state, action) => {
-    state = {...state, callCount: state.callCount + 1}
     switch (action.type) {
-        case'count1':
-            return {...state, count1: {...state.count1, count: state.count1.count + action.payload}}
-        case'count2':
-            return {...state, count2: {...state.count2, count: state.count2.count + action.payload}}
-        case'count3':
-            return {...state, count3: {...state.count3, count: state.count3.count + action.payload}}
-        case'reset':
-            return {...state, ['count'+ action.payload]: {...state['count'+ action.payload], count: 0}}
-
-        case 'resetCallCounter':
-            return{...state, callCount:0}
-
+        case 'addCat' :
+            return {...state, cats: [...state.cats, {name: action.payload, id: Date.now()}]}
+        case 'deleteCat' :
+            return {...state, cats: state.cats.filter(cat => cat.id !== action.payload)}
+        case 'addDog' :
+            return {...state, dogs: [...state.dogs, {name: action.payload,id: Date.now()}]}
+        case 'deleteDog' :
+            return {...state, dogs: state.dogs.filter(dog => dog.id !== action.payload)}
         default:
             return state
     }
@@ -23,27 +19,52 @@ const reduser = (state, action) => {
 
 export const App = () => {
     const [state, dispatch] = useReducer(reduser, {
-        count1: {count: 0},
-        count2: {count: 0},
-        count3: {count: 0},
-        callCount: 0
+        cats: [],
+        dogs: []
     });
+
+    const [dogValue, setDogValue] = useState('');
+    const [catValue, setCatValue] = useState('');
+
+    const setNewAnimal = (setter, type, payload) => {
+        dispatch({type, payload});
+        setter('');
+    }
 
     return (
         <div>
+            <div className={"flex"}>
+                <div>
+                    <div>add Cat</div>
+                    <input onChange={({target}) => setCatValue(target.value)}
+                           type={'text'} value={catValue}/>
+                    <button onClick={() => setNewAnimal(setCatValue, 'addCat', catValue)}>вывести</button>
+                </div>
 
-
-            <UseReduser state={state} dispatch={dispatch} counterNumber={1}/>
-            <UseReduser state={state} dispatch={dispatch} counterNumber={2}/>
-            <UseReduser state={state} dispatch={dispatch} counterNumber={3}/>
-
-            <hr/>
-            <div>
-                callCount : {state.callCount}
-                <button onClick={() => dispatch({type: 'resetCallCounter'})}> Nsr</button>
+                <div>
+                    <div>add Dog</div>
+                    <input onChange={({target}) => setDogValue(target.value)}
+                           type={'text'} value={dogValue}/>
+                    <button onClick={() => setNewAnimal( setDogValue,'addDog',  dogValue)}>вывести</button>
+                </div>
             </div>
+            <hr/>
 
+            <div className={"flex"}>
+                <div>
+                    Cats:
+                    {
+                        state.cats.map(cat => <div key={cat.id}>{cat.name}<button onClick={() => dispatch({type: 'deleteCat', payload: cat.id})}>delete</button></div>)
+                    }
+                </div>
+
+                <div>
+                    Dogs:
+                    {
+                        state.dogs.map(dog => <div  key={dog.id}>{dog.name}<button onClick={() =>dispatch({type: 'deleteDog',payload: dog.id})}>delete</button></div>)
+                    }
+                </div>
+            </div>
         </div>
     );
 };
-
